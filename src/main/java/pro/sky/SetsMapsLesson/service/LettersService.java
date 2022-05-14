@@ -2,8 +2,9 @@ package pro.sky.SetsMapsLesson.service;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
+import static com.fasterxml.jackson.databind.type.LogicalType.Array;
 
 @Service
 public class LettersService {
@@ -38,5 +39,33 @@ public class LettersService {
             if (temp_count>1) count.add(temp_count);
         }
         return count;
+    }
+
+    public boolean likeByLetters(String word1temp, String word2temp) {
+        Set<Character> word1 = new HashSet<>();
+        Set<Character> word2 = new HashSet<>();
+        for (int i=0; i<word1temp.length(); i++) {
+            word1.add(word1temp.charAt(i));
+        }
+        for (int i=0; i<word2temp.length(); i++) {
+            word2.add(word2temp.charAt(i));
+        }
+        if (word1.equals(word2)) return true;
+        else return false;
+    }
+
+    public boolean anagram(String word1temp, String word2temp) {
+        if (word1temp.length() != word2temp.length()) return false;
+
+        List<Character> word1 = new ArrayList<>();
+        List<Character> word2 = new ArrayList<>();
+        for (int i=0; i<word1temp.length(); i++) {
+            word1.add(word1temp.charAt(i));
+            word2.add(word2temp.charAt(i));
+        }
+        for (int i=0; i< word1.size(); i++) {
+            if (word1.get(i) != word2.get(word2.size()-1-i)) return false;
+        }
+        return true;
     }
 }

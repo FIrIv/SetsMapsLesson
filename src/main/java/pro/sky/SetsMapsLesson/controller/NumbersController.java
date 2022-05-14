@@ -27,4 +27,14 @@ public class NumbersController {
     public List<Integer> nechet () {
         return numbersService.nechet();
     }
+
+    @GetMapping("/uniq1not0")
+    public List<Integer> uniq1not0 () {
+        return numbersService.uniq1not0();
+    }
+
+    @GetMapping("/uniq1not0count")
+    public Integer uniq1not0count () {
+        return numbersService.uniq1not0count();
+    }
 }
