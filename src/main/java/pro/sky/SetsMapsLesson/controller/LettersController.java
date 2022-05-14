@@ -23,7 +23,7 @@ public class LettersController {
     }
 
     @GetMapping("/repeatcount")
-    public Integer countOfRepeat () {
+    public List <Integer> countOfRepeat () {
         return lettersService.countOfRepeat();
     }
 }

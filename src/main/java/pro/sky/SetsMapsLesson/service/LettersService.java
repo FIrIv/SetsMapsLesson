@@ -23,8 +23,8 @@ public class LettersService {
         return text2;
     }
 
-    public Integer countOfRepeat() {
-        Integer count = 0;
+    public List<Integer> countOfRepeat() {
+        List<Integer> count = new ArrayList<>();
         List<String> text2 = uniq();
         for (int i=0; i<text2.size(); i++) {
             if (text2.get(i) == null) continue;
@@ -35,7 +35,7 @@ public class LettersService {
                     temp_count++;
                 }
             }
-            if (temp_count>1) count += temp_count;
+            if (temp_count>1) count.add(temp_count);
         }
         return count;
     }
